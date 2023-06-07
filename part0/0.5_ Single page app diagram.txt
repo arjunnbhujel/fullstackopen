@@ -1,0 +1,25 @@
+title 0.5: Single page app diagram
+
+
+participant Browser
+participant Server
+
+Browser->Server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+Browser<--Server: HTML Document(spa)
+
+Browser->Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Browser<--Server: CSS File(main.css)
+
+Browser->Server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+Browser<--Server: JS File(spa.js)
+
+note over Browser: Broswer start executing spa.js code that fetches the JSON from the server.
+
+Browser->Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Browser<--Server: JSON data [{ content: "Hello", date: "2023-06-07T11:01:04.181Z"}, ...]
+
+
+Browser->Server: GET https://studies.cs.helsinki.fi/favicon.ico
+Browser<--Server: Response with 404 Status Code (Not Found)
+
+note over Browser: Browser renders all the JSON data to the HTML Document(spa)

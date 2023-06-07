@@ -1,0 +1,18 @@
+title 0.6: New note in Single page app diagram
+
+
+participant Browser
+participant Server
+
+note left of Browser : User give the input and Click Save
+
+note over Browser : Update DOM with new_note_spa 
+note over Browser : Convert new_note_spa to JSON
+
+Browser->Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+note over Server :POST method add new note in the server
+
+Browser<--Server: HTTP Status Code 201 Created JSON data[{ content: "Hello - spa", date: "2023-06-07T11:44:42.013Z" }, ...]
+
+note over Browser, Server: When the Browser is refreshed it now shows the content which we have added recently.

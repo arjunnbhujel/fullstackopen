@@ -1,0 +1,50 @@
+title 0.4 : New Note Diagram
+
+participant Browser
+participant Server
+
+Browser->Server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+Browser<--Server: HTML Document(notes)
+
+Browser->Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Browser<--Server: CSS File (main.css)
+
+Browser->Server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+Browser<--Server: JavaScript File (main.js)
+
+note over Browser: Browser starts executing main.js code that fetches the JSON from the server.
+
+Browser->Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Browser<--Server: JSON Data [{ content: "test", date: "2023-06-07T02:15:06.116Z"}, ...]
+
+note over Browser, Server:Broswer send a GET request to https://studies.cs.helsinki.fi/favicon.ico and in response Server sends 404 Page not Found.
+
+note over Browser: Browser renders all the JSON data to the notes.
+
+note over Browser, Server:↓ Exercise of 0.4: New Note Diagram ↓
+
+note left of Browser: User give the input and Click Save
+
+Browser->Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+note over Server: POST method add new note in the server
+
+Browser<--Server: HTTP Status Code 302(URL is redirected)
+
+Browser->Server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+Browser<--Server: HTML Document(notes)
+
+Browser->Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Browser<--Server: CSS File (main.css)
+
+Browser->Server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+Browser<--Server: JavaScript File (main.js)
+
+note over Browser: Browser starts executing main.js code that fetches the JSON from the server.
+
+Browser->Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Browser<--Server: JSON Data [{ content: "Hello", date: "2023-06-07T11:01:04.181Z" }, ...]
+
+note over Browser:Browser renders all the JSON data to the notes including the new Input.
+
+note over Browser, Server:Broswer send a GET request to https://studies.cs.helsinki.fi/favicon.ico and in response Server sends 404 Page not Found.
