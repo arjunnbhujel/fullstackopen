@@ -1,40 +1,65 @@
+// Exercise 1.1: course information, step1 contains defination of new component
+// i.e. Header, Content and Total
+
 const Header = (props) => {
   return (
     <h1>{props.course}</h1>
   )
 }
 
-const Content = (props) => {
+const Part = (props) => {
   return (
-    <p>{props.part} {props.exercise}</p>
+    <div>
+      <h2>{props.part}</h2>
+      <p>The number of exercises are = {props.exercise}</p>
+      <br />
+    </div>
   )
+}
+
+
+// Exercise 1.2: course information, step2 is just the refactoration.
+// Created another component i.e. Part.
+// Part is called in Content Component which further accepts array of parts in App Component
+
+const Content = (props) => {
+
+    // use of array.map Prototype
+    // index === parts[i] where i increment by 1 untill the end of array
+    return (
+      <div>
+        {props.parts.map( (index) => (<Part part = {index.name} exercise = {index.exercises}/>)
+        )}
+      </div>
+    )
 }
 
 const Total = (props) => {
   return (
-    <p>No of exercises are {props.exercises1 + props.exercises2 + props.exercises3}</p>
+    <p>There are total of {props.exercises1 + props.exercises2 + props.exercises3} No of exercises.</p>
   )
 }
 
 
 const App = () => {
   const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
-  const part3 = 'State of a component'
-  const exercises3 = 14
+
+  const parts = [
+    { name : 'Fundamentals of React', exercises : 10},
+    { name : 'Using props to pass data', exercises : 7},
+    { name : 'State of a component', exercises : 14}
+  ]
 
   return(
     <div>
       <Header course={course} />
-      <Content part={part1} exercise={exercises1}  />
-      <Content part={part2} exercise={exercises2} />
-      <Content part={part3} exercise={exercises3} />
-      <Total exercises1={exercises1} exercises2={exercises2} exercises3={exercises3} />
+      <Content parts = {parts} />
+      <Total exercises1={parts[0].exercises} exercises2={parts[1].exercises} exercises3={parts[2].exercises} />
     </div>
   )
 }
+
+
+
 
 export default App;
