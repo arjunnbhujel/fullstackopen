@@ -1,13 +1,19 @@
 // Exercise 1.1: course information, step1 contains defination of new component
 // i.e. Header, Content and Total
 
+
+// Exercise 1.3: Printing props to the Console.
 const Header = (props) => {
+  // Printing props to Console
+  console.log(props)
   return (
     <h1>{props.course}</h1>
   )
 }
 
 const Part = (props) => {
+  // Printing props to Console
+  console.log(props) //
   return (
     <div>
       <h2>{props.part}</h2>
@@ -23,7 +29,8 @@ const Part = (props) => {
 // Part is called in Content Component which further accepts array of parts in App Component
 
 const Content = (props) => {
-
+  // Printing props to Console
+    console.log(props)
     // use of array.map Prototype
     // index === parts[i] where i increment by 1 untill the end of array
     return (
@@ -35,6 +42,8 @@ const Content = (props) => {
 }
 
 const Total = (props) => {
+  // Printing props to Console
+  console.log(props) //
   return (
     <p>There are total of {props.exercises1 + props.exercises2 + props.exercises3} No of exercises.</p>
   )
