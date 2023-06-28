@@ -21,3 +21,18 @@ I have completed the exercises given in part0.
 I have used the tool [Sequence Diagram](https://sequencediagram.org/) to create the diagram and [Firefox Browser Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) to look over the network of a website.
 
 [solution folder](/part0)
+
+# Part 1 : Introduction to React
+Here, I have learned :
+- What is React and its basic Syntax
+- React Component
+- Use State in React
+- Javascript (Object, Destucturing, Array, Let, Const, Function, Classes)
+- Component State, Event Handlers
+
+I have Completed exercises given in part1
+- [1.1 - 1.5 : Course Information](/part1/courseinfo/)
+- [1.6 - 1.11 : Unicafe](/part1/unicafe/)
+- [1.12 - 1.15 : Anecdotes](/part1/anecdotes/)
+
+[solution folder](/part1/)
