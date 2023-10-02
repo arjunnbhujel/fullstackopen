@@ -1,28 +1,25 @@
 import React from "react";
 
-const SinglePerson = ({ persons }) => (
-	<li key={persons.name}>
-		{persons.name} ---- {persons.number}
+const SinglePerson = ({ person, deletePerson }) => (
+	<li>
+		{person.name} ---- {person.number}
+		<button onClick={() => deletePerson(person.id)}> Delete </button>
 	</li>
 );
 
-const Person = ({ persons, filter }) => {
+const Person = ({ persons, deletePerson }) => {
 	return (
-		<ul>
-			{persons
-				.filter((value) => {
-					if (filter === "") {
-						return value;
-					} else if (
-						value.name.toLowerCase().includes(filter.toLowerCase())
-					) {
-						return value;
-					}
-				})
-				.map((persons) => (
-					<SinglePerson key={persons.name} persons={persons} />
+		<div>
+			<ul>
+				{persons.map((person) => (
+					<SinglePerson
+						key={person.id}
+						person={person}
+						deletePerson={deletePerson}
+					/>
 				))}
-		</ul>
+			</ul>
+		</div>
 	);
 };
 
